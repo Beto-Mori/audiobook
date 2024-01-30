@@ -1,64 +1,64 @@
-const botaoPlayPause = document.getElementById("play-pause")
-const botaoAvancar = document.getElementById("proximo")
-const botaoVoltar = document.getElementById("anterior")
-const nomeCapitulo = document.getElementById("capitulo")
-const audioCapitulo = document.getElementById("audio-capitulo")
-const numeroCapitulos = 10
-let taTocando = 0
-let capituloAtual = 1
+const playPauseButton = document.getElementById("play-pause")
+const forwardButton = document.getElementById("forward")
+const backwardButton = document.getElementById("backward")
+const chapterName = document.getElementById("chapter")
+const chapterAudio = document.getElementById("chapter-audio")
+const chapterNumber = 10
+let playing = 0
+let currentChapter = 1
 
-function tocarFaixa() {
-  audioCapitulo.play()
-  botaoPlayPause.classList.remove("bi-play-circle-fill")
-  botaoPlayPause.classList.add("bi-pause-circle-fill")
+function playTrack() {
+  chapterAudio.play()
+  playPauseButton.classList.remove("bi-play-circle-fill")
+  playPauseButton.classList.add("bi-pause-circle-fill")
 }
 
-function pausarFaixa() {
-  audioCapitulo.pause()
-  botaoPlayPause.classList.remove("bi-pause-circle-fill")
-  botaoPlayPause.classList.add("bi-play-circle-fill")
+function pauseTrack() {
+  chapterAudio.pause()
+  playPauseButton.classList.remove("bi-pause-circle-fill")
+  playPauseButton.classList.add("bi-play-circle-fill")
 }
 
-function tocarOuPausar() {
-  if (taTocando === 0) {
-    tocarFaixa()
-    taTocando = 1
+function playPause() {
+  if (playing === 0) {
+    playTrack()
+    playing = 1
   } else {
-    pausarFaixa()
-    taTocando = 0
+    pauseTrack()
+    playing = 0
   }
 }
 
-function trocarNomeFaixa() {
-  nomeCapitulo.innerText = "Capítulo " + capituloAtual
+function changeTrackName() {
+  chapterName.innerText = "Capítulo " + currentChapter
 }
 
-function proximaFaixa() {
-  if (capituloAtual === numeroCapitulos) {
-    capituloAtual = 1
+function forwardTrack() {
+  if (currentChapter === chapterNumber) {
+    currentChapter = 1
   } else {
-    capituloAtual = capituloAtual + 1
+    currentChapter = currentChapter + 1
   }
 
-  audioCapitulo.src = "./books/dom-casmurro/" + capituloAtual + ".mp3"
-  tocarFaixa()
-  taTocando = 1
-  trocarNomeFaixa()
+  chapterAudio.src = "./books/dom-casmurro/" + currentChapter + ".mp3"
+  playTrack()
+  playing = 1
+  changeTrackName()
 }
 
-function voltarFaixa() {
-  if (capituloAtual === 1) {
-    capituloAtual = numeroCapitulos
+function backwardTrack() {
+  if (currentChapter === 1) {
+    currentChapter = chapterNumber
   } else {
-    capituloAtual = capituloAtual - 1
+    currentChapter = currentChapter - 1
   }
 
-  audioCapitulo.src = "./books/dom-casmurro/" + capituloAtual + ".mp3"
-  tocarFaixa()
-  taTocando = 1
-  trocarNomeFaixa()
+  chapterAudio.src = "./books/dom-casmurro/" + currentChapter + ".mp3"
+  playTrack()
+  playing = 1
+  changeTrackName()
 }
 
-botaoPlayPause.addEventListener("click", tocarOuPausar)
-botaoAvancar.addEventListener("click", proximaFaixa)
-botaoVoltar.addEventListener("click", voltarFaixa)
+playPauseButton.addEventListener("click", playPause)
+forwardButton.addEventListener("click", forwardTrack)
+backwardButton.addEventListener("click", backwardTrack)

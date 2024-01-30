@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Audiobook</title>
     <link rel="stylesheet" href="./style.css" />
     <link
       rel="stylesheet"
@@ -12,23 +12,23 @@
   </head>
 
   <body>
-    <div class="container-aplicativo">
+    <div class="container-app">
       <img
         src="./images/dom-casmurro.jpeg"
         alt="Capa do livro Dom Casmurro de Machado de Assis."
       />
 
-      <div id="informacoes-faixa">
-        <p id="capitulo">Capítulo 1</p>
-        <p id="nome-autor">Machado de Assis</p>
+      <div id="track-info">
+        <p id="chapter">Capítulo 1</p>
+        <p id="author">Machado de Assis</p>
       </div>
 
-      <audio id="audio-capitulo" src="./books/dom-casmurro/1.mp3"></audio>
+      <audio id="chapter-audio" src="./books/dom-casmurro/1.mp3"></audio>
 
-      <div id="container-botoes">
-        <button id="anterior" class="bi bi-skip-backward-fill"></button>
+      <div id="container-buttons">
+        <button id="backward" class="bi bi-skip-backward-fill"></button>
         <button id="play-pause" class="bi bi-play-circle-fill"></button>
-        <button id="proximo" class="bi bi-skip-forward-fill"></button>
+        <button id="forward" class="bi bi-skip-forward-fill"></button>
       </div>
     </div>
 

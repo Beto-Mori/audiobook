@@ -1,4 +1,5 @@
 body {
+
   background-image: linear-gradient(#3b1566, #5f4da8);
   height: 100vh;
   display: flex;
@@ -8,7 +9,7 @@ body {
   color: #d6d6ea;
 }
 
-.container-aplicativo {
+.container-app {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +28,7 @@ button {
   align-items: center;
 }
 
-#informacoes-faixa {
+#track-info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,8 +36,8 @@ button {
   font-size: 1.5rem;
 }
 
-#anterior,
-#proximo {
+#backward,
+#forward {
   font-size: 3rem;
 }
 
@@ -44,7 +45,7 @@ button {
   font-size: 4rem;
 }
 
-#container-botoes {
+#container-buttons {
   width: 100%;
   display: flex;
   justify-content: space-around;
